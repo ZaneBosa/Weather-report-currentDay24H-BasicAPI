@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Report for Paris</title>
+</head>
+<body>
+
+
+<table>
+    <thead>Weather Report for Paris, France</thead>
+    <thead>
+
+    <tr>
+
+        <th>DATE</th>
+        <th>TEMPERATURE</th>
+        <th>HUMIDITY</th>
+        <th> </th>
+        <th>WEATHER CONDITION</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for hourlyReport in weatherReport %}
+    <tr>
+        <td style="text-align: center; color: brown">{{ hourlyReport.getDate }}</td>
+        <td style="text-align: center; color: olive">{{ hourlyReport.getTemperature }}C</td>
+        <td style="text-align: center; color: teal">{{ hourlyReport.getHumidity }}%</td>
+        <td style="text-align: center"><a href="https://www.weatherapi.com/" title="Free Weather API"><img src='{{ hourlyReport.getIcon }}' alt="Weather data by WeatherAPI.com"></a></td>
+        <td style="font-weight: bold; color: teal">{{ hourlyReport.getText }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+</body>
+</html>
